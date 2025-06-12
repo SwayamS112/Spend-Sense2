@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Dashboard from "../dashboard/Dashboard";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ name, email }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -53,13 +55,13 @@ const Navbar = ({ name, email }) => {
               </div>
               <ul className="py-2">
                 <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                  >
-                    Dashboard
-                  </a>
-                </li>
+                 <Link
+                   to="/dashboard"
+                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                 >
+                   Dashboard
+                 </Link>
+               </li>
                 <li>
                   <a
                     href="#"
