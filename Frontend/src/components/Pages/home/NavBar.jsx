@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Dashboard from "../dashboard/Dashboard";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ name, email }) => {

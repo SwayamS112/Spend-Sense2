@@ -4,7 +4,6 @@ import Login from "./components/Pages/login/Login";
 import SignUp from './components/Pages/signup/SignUp';
 import Dashboard from './components/Pages/dashboard/Dashboard';
 
-// Protected Route component
 const ProtectedRoute = ({ children }) => {
   const user = localStorage.getItem('user');
   if (!user) {

@@ -1,21 +1,22 @@
 require('dotenv').config();
+const PORT = process.env.PORT || 5005;
 
 const express = require('express');
-const mongoose = require('mongoose');
-const User = require('./models/User');
-const cors = require('cors');
 const app = express();
 
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
+
+
+const User = require('./models/User');
+
+const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
-// Connect to MongoDB with error handling
-mongoose.connect(process.env.MONGODB_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => {
-        console.error('MongoDB connection error:', err);
-        process.exit(1); // Consider handling this more gracefully
-    });
 
 // Register user
 app.post('/api/register', async (req, res) => {
@@ -108,7 +109,6 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

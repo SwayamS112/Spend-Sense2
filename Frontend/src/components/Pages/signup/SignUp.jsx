@@ -22,7 +22,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       console.log('Submitting form data:', formData);
-      const response = await fetch('http://localhost:5000/api/register', {
+      const response = await fetch('http://localhost:5005/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ const SignUp = () => {
 
   return (
     <div className="relative flex justify-center items-center h-screen overflow-hidden">
-      <Vortex /> {/* ✅ Background component */}
+      <Vortex />
       
       <div className="absolute z-10 w-full max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <form onSubmit={handleSubmit} className="space-y-6">

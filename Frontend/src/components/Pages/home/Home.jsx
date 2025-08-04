@@ -1,8 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import NavBar from './NavBar'; // Adjust path
+import NavBar from './NavBar';
 import Footer from './Footer';
 import Card from './Card';
+import Dashboard from '../dashboard/Dashboard';
 import { Background } from '../../ui/background';
 
 const Home = () => {
@@ -34,8 +35,8 @@ const Home = () => {
       <div className="relative z-10">
         <NavBar name={userData.name} email={userData.email} />
         <main className="pt-20 px-4 pb-10">
-  <Card name={userData.name} />
-</main>
+        <Card name={userData.name} />
+        </main>
 
         <Footer />
       </div>
