@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import { loginUser } from '../../../../../BackEnd/utils/api';
 import { loginUser } from '../../../api/api';
-import  LoginVortex  from "../../ui/LoginVortex";
+import LoginVortex from "../../ui/LoginVortex";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ const Login = () => {
         localStorage.setItem('user', JSON.stringify(response.user));
         navigate(`/home/${response.user.id}`);
       } else {
-        setError(response.error || 'Invalid credentials');
+        setError(response.message || 'Invalid credentials');
       }
     } catch (error) {
       console.error('Login error:', error);
