@@ -1,10 +1,11 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import NavBar from './NavBar';
+// import NavBar from './NavBar'; // insead of using navbar i am using sidebar
+import Sidebar from './SideBar';
 import Footer from './Footer';
 import Card from './Card';
-import Dashboard from '../dashboard/Dashboard';
-import { Background } from '../../ui/background';
+import Dashoard from '../dashboard/Dashboard';
+import  Background  from '../../ui/Background';
 
 const Home = () => {
   const { userId } = useParams();
@@ -27,13 +28,19 @@ const Home = () => {
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
       {/* Full-Screen Background Behind Everything */}
+
+      <Background>
+        <h1 className="text-white text-4xl font-bold">Welcome to SpendSence</h1>
+      </Background>
+
+
       <div className="fixed inset-0 -z-10">
         <Background className="w-full h-full" />
       </div>
 
       {/* Main Content */}
       <div className="relative z-10">
-        <NavBar name={userData.name} email={userData.email} />
+       <Sidebar />
         <main className="pt-20 px-4 pb-10">
         <Card name={userData.name} />
         </main>
